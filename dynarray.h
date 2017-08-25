@@ -22,4 +22,14 @@ typedef struct {																											\
 	(a)->items[(a)->count++] = (value);																			\
 } while(0)
 
+
+#define dynarray_swap_remove(a, index) do {																	\
+	if (!((a)->items == NULL && (a)->count == 0)) {														\
+		(a)->items[index] = (a)->items[--(a)->count];														\
+	}																																					\
+} while(0)
+
+
+#define dynarray_free(a) free((a)->items)
+
 #endif
